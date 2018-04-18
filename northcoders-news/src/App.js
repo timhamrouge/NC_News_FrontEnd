@@ -12,7 +12,7 @@ class App extends Component {
           {/* <div className="container-fluid"> */}
           <Navbar />
           <Header />
-          <ArticlesTicker />
+          <Route exact path="/" component={ArticlesTicker} />
           <Route path="/hello" component={Hello} />
           {/* </div> */}
         </div>
