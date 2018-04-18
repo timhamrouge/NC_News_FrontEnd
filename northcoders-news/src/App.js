@@ -23,7 +23,7 @@ class App extends Component {
     );
   }
   componentDidMount() {
-    fetch("https://nc-news-timhamrouge.herokuapp.com/api/users")
+    fetch("https://nc-news-timhamrouge.herokuapp.com/api/articles")
       .then(res => {
         return res.json();
       })
