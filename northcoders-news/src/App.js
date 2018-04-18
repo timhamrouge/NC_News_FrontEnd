@@ -7,14 +7,23 @@ import ArticlesTicker from "./components/ArticlesTicker";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        {/* <div className="container-fluid"> */}
-        <Navbar />
-        <Header />
-        <ArticlesTicker />
-        {/* </div> */}
-      </div>
+      <Router>
+        <div className="App">
+          {/* <div className="container-fluid"> */}
+          <Navbar />
+          <Header />
+          <ArticlesTicker />
+          <Route path="/hello" component={Hello} />
+          {/* </div> */}
+        </div>
+      </Router>
     );
+  }
+}
+
+class Hello extends Component {
+  render() {
+    return <div>HI TIM</div>;
   }
 }
 
