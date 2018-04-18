@@ -5,6 +5,9 @@ import Header from "./components/Header";
 import ArticlesTicker from "./components/ArticlesTicker";
 
 class App extends Component {
+  state = {
+    loading: true
+  };
   render() {
     return (
       <Router>
@@ -13,11 +16,20 @@ class App extends Component {
           <Navbar />
           <Header />
           <Route exact path="/" component={ArticlesTicker} />
-          <Route path="/hello" component={Hello} />
+          <Route path="/users" component={Hello} />
           {/* </div> */}
         </div>
       </Router>
     );
+  }
+  componentDidMount() {
+    fetch("https://nc-news-timhamrouge.herokuapp.com/api/users")
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        console.log(res);
+      });
   }
 }
 
