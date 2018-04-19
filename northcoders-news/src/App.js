@@ -8,27 +8,41 @@ import RandomArticle from "./components/RandomArticle";
 
 class App extends Component {
   state = {
+    articles: [],
     loading: true,
     articleLength: 0
   };
   render() {
+    const { articles } = this.state;
     return (
       <Router>
         <div className="App">
-          {/* <div className="container-fluid"> */}
           <Navbar />
           <Header />
-          <Route exact path="/" component={ArticlesTicker} />
-          <Route exact path="/random" component={RandomArticle} />
+          {/* <Route exact path="/" component={ArticlesTicker} /> */}
+          <Route
+            exact
+            path="/random"
+            render={props => <RandomArticle articles={articles} />}
+          />
           <Route path="/users" component={UsersList} />
-          <Route path="/articles" component={ArticlesTicker} />
-          {/* </div> */}
+          <Route
+            path="/articles"
+            render={props => <ArticlesTicker articles={articles} />}
+          />
         </div>
       </Router>
     );
   }
+  componentDidMount() {
+    fetch("https://nc-news-timhamrouge.herokuapp.com/api/articles")
+      .then(res => {
+        return res.json();
+      })
+      .then(articlesObj => {
+        this.setState({ articles: articlesObj.articles });
+      });
+  }
 }
-
-// <Route exact path="/" render={props => <ArticlesTicker articles={articles} />} />;
 
 export default App;

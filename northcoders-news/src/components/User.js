@@ -5,13 +5,13 @@ const faker = require("faker/locale/en_GB");
 class User extends React.Component {
   render() {
     console.log(this.props.user);
-    const { avatar_url, username, name } = this.props.user;
+    const { avatar_url, username } = this.props.user;
     return (
       <div className="user">
         <li className="list-group-item border-0">
           <div className="d-flex w-100 justify-content-between">
             <div className="row">
-              <img src={avatar_url} width="50" height="50" />
+              <img src={avatar_url} width="50" height="50" alt="user-avatar" />
               <h5 className="mb-1">{username}</h5>
               <p>
                 <div className="card fakebio">

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Article.css";
-import ArticleVoter from "./ArticleVoter";
+import Voter from "./Voter";
 
 class Article extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class Article extends React.Component {
             <div className="row">
               <div className="col-2">
                 <div className="card-votes">
-                  <ArticleVoter votes={article.votes} />
+                  <Voter votes={article.votes} />
                 </div>
               </div>
               <div className="col-10">
