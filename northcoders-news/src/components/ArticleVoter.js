@@ -9,15 +9,13 @@ class ArticleVoter extends React.Component {
     let votes = this.props.votes;
     return (
       <div className="article-voter">
-        <p>
-          <div className="up-arrow">
-            <i class="fas fa-chevron-up" />
-          </div>
-          <div className="votes">{votes}</div>
-          <div className="down-arrow">
-            <i class="fas fa-chevron-down" />
-          </div>
-        </p>
+        <div className="up-arrow">
+          <i class="fas fa-chevron-up" />
+        </div>
+        <div className="votes">{votes}</div>
+        <div className="down-arrow">
+          <i class="fas fa-chevron-down" />
+        </div>
       </div>
     );
   }

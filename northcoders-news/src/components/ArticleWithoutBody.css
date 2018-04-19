@@ -1,0 +1,6 @@
+.body-snippet {
+  white-space: nowrap;
+  width: 95%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

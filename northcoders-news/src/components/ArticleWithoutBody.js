@@ -1,6 +1,6 @@
 import React from "react";
 import ArticleVoter from "./ArticleVoter";
-import "./ArticleWithBody.css";
+import "./ArticleWithoutBody.css";
 
 class ListViewArticle extends React.Component {
   render() {
@@ -21,6 +21,7 @@ class ListViewArticle extends React.Component {
                   <small>
                     Posted by: {article.created_by} in /{article.belongs_to}
                   </small>
+                  <div className="body-snippet">{article.body}</div>
                 </div>
               </div>
             </div>
