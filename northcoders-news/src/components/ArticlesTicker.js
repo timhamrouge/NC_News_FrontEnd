@@ -1,5 +1,5 @@
 import React from "react";
-import ListViewArticle from "./ArticleWithoutBody";
+import Article from "./Article";
 
 class ArticlesTicker extends React.Component {
   state = {
@@ -11,7 +11,9 @@ class ArticlesTicker extends React.Component {
         <div className="articles-ticker">
           <ul className="list-group">
             {this.state.articles.map(article => {
-              return <ListViewArticle article={article} key={article._id} />;
+              return (
+                <Article length={false} article={article} key={article._id} />
+              );
             })}
           </ul>
         </div>

@@ -8,7 +8,8 @@ import RandomArticle from "./components/RandomArticle";
 
 class App extends Component {
   state = {
-    loading: true
+    loading: true,
+    articleLength: 0
   };
   render() {
     return (

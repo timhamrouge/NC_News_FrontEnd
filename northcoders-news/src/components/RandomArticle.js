@@ -1,5 +1,5 @@
 import React from "react";
-import ArticleWithBody from "./ArticleWithBody";
+import Article from "./Article";
 const { sample } = require("lodash");
 
 class RandomArticle extends React.Component {
@@ -12,7 +12,7 @@ class RandomArticle extends React.Component {
     return (
       <div className="container">
         <div class="card-body">
-          <ArticleWithBody article={this.state.randomArticle} />
+          <Article length={true} article={this.state.randomArticle} />
         </div>
       </div>
     );

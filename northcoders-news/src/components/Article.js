@@ -1,9 +1,10 @@
 import React from "react";
+import "./Article.css";
 import ArticleVoter from "./ArticleVoter";
-import "./ArticleWithBody.css";
 
-class ArticleWithBody extends React.Component {
+class Article extends React.Component {
   render() {
+    let length = this.props.length;
     let article = this.props.article;
     return (
       <div className="article">
@@ -21,7 +22,9 @@ class ArticleWithBody extends React.Component {
                   <small>
                     Posted by: {article.created_by} in /{article.belongs_to}
                   </small>
-                  <div className="body">{article.body}</div>
+                  <div className={`${this.lengthGetter(length)}`}>
+                    {article.body}
+                  </div>
                 </div>
               </div>
             </div>
@@ -30,6 +33,9 @@ class ArticleWithBody extends React.Component {
       </div>
     );
   }
+  lengthGetter = length => {
+    return !length ? "body-snippet" : "body";
+  };
 }
 
-export default ArticleWithBody;
+export default Article;
