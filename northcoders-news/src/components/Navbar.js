@@ -17,8 +17,18 @@ class Navbar extends React.Component {
           />
         </Link>
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item navbar-text">Hello</li>
-          <li className="nav-item navbar-text">world</li>
+          <li className="nav-item navbar-text">
+            {" "}
+            <Link to="/random" className="nav-Link">
+              Random
+            </Link>
+          </li>
+          <li className="nav-item navbar-text">
+            {" "}
+            <Link to="/articles" className="nav-Link">
+              All
+            </Link>
+          </li>
           <li className="nav-item navbar-text">
             <Link to="/users" className="nav-Link">
               Users

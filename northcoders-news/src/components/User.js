@@ -1,4 +1,6 @@
 import React from "react";
+import "./User.css";
+const faker = require("faker/locale/en_GB");
 
 class User extends React.Component {
   render() {
@@ -6,11 +8,16 @@ class User extends React.Component {
     const { avatar_url, username, name } = this.props.user;
     return (
       <div className="user">
-        <li className="list-group-item">
+        <li className="list-group-item border-0">
           <div className="d-flex w-100 justify-content-between">
             <div className="row">
               <img src={avatar_url} width="50" height="50" />
               <h5 className="mb-1">{username}</h5>
+              <p>
+                <div className="card fakebio">
+                  {faker.fake("{{lorem.sentences}}")}
+                </div>
+              </p>
             </div>
           </div>
           {/* <small>
