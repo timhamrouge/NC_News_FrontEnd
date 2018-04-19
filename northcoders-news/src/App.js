@@ -20,6 +20,7 @@ class App extends Component {
           <Route exact path="/" component={ArticlesTicker} />
           <Route exact path="/random" component={RandomArticle} />
           <Route path="/users" component={UsersList} />
+          <Route path="/articles" component={ArticlesTicker} />
           {/* </div> */}
         </div>
       </Router>
@@ -28,11 +29,5 @@ class App extends Component {
 }
 
 // <Route exact path="/" render={props => <ArticlesTicker articles={articles} />} />;
-
-class Hello extends Component {
-  render() {
-    return <div>HI TIM</div>;
-  }
-}
 
 export default App;

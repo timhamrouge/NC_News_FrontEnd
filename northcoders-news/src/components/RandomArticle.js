@@ -1,4 +1,5 @@
 import React from "react";
+import ArticleWithBody from "./ArticleWithBody";
 const { sample } = require("lodash");
 
 class RandomArticle extends React.Component {
@@ -10,21 +11,8 @@ class RandomArticle extends React.Component {
     let randomArticle = this.state.randomArticle;
     return (
       <div className="container">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{randomArticle.title}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              submitted by:&nbsp;
-              {randomArticle.created_by}
-            </h6>
-            <p class="card-text">{randomArticle.body}</p>
-            {/* <a href="#" class="card-link">
-              Card link
-            </a>
-            <a href="#" class="card-link">
-              Another link
-            </a> */}
-          </div>
+        <div class="card-body">
+          <ArticleWithBody article={this.state.randomArticle} />
         </div>
       </div>
     );

@@ -1,7 +1,8 @@
 import React from "react";
 import ArticleVoter from "./ArticleVoter";
+import "./ArticleWithBody.css";
 
-class Article extends React.Component {
+class ArticleWithBody extends React.Component {
   render() {
     let article = this.props.article;
     return (
@@ -31,4 +32,4 @@ class Article extends React.Component {
   }
 }
 
-export default Article;
+export default ArticleWithBody;
