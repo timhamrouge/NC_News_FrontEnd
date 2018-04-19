@@ -6,16 +6,23 @@ import ArticlesTicker from "./components/ArticlesTicker";
 
 class App extends Component {
   state = {
+    articles: [],
     loading: true
   };
   render() {
+    let articles = this.state.articles;
     return (
       <Router>
         <div className="App">
           {/* <div className="container-fluid"> */}
+
           <Navbar />
           <Header />
-          <Route exact path="/" component={ArticlesTicker} />
+          <Route
+            exact
+            path="/"
+            render={props => <ArticlesTicker articles={articles} />}
+          />
           <Route path="/users" component={Hello} />
           {/* </div> */}
         </div>
@@ -27,8 +34,8 @@ class App extends Component {
       .then(res => {
         return res.json();
       })
-      .then(res => {
-        console.log(res);
+      .then(articlesObj => {
+        this.setState({ articles: articlesObj.articles });
       });
   }
 }

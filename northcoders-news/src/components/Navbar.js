@@ -20,7 +20,8 @@ class Navbar extends React.Component {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link">hello</a>
+              <a className="nav-link">Popular</a>{" "}
+              {/*organise articles by votes*/}
             </li>
             <li className="nav-item">
               <a className="nav-link">hello</a>
