@@ -3,14 +3,13 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import ArticlesTicker from "./components/ArticlesTicker";
+import UsersList from "./components/UsersList";
 
 class App extends Component {
   state = {
-    articles: [],
     loading: true
   };
   render() {
-    let articles = this.state.articles;
     return (
       <Router>
         <div className="App">
@@ -18,26 +17,21 @@ class App extends Component {
 
           <Navbar />
           <Header />
-          <Route
-            exact
-            path="/"
-            render={props => <ArticlesTicker articles={articles} />}
-          />
-          <Route path="/users" component={Hello} />
+          <Route exact path="/" component={ArticlesTicker} />
+          <Route path="/users" component={UsersList} />
           {/* </div> */}
         </div>
       </Router>
     );
   }
-  componentDidMount() {
-    fetch("https://nc-news-timhamrouge.herokuapp.com/api/articles")
-      .then(res => {
-        return res.json();
-      })
-      .then(articlesObj => {
-        this.setState({ articles: articlesObj.articles });
-      });
-  }
+}
+
+{
+  /* <Route
+            exact
+            path="/"
+            render={props => <ArticlesTicker articles={articles} />}
+          /> */
 }
 
 class Hello extends Component {

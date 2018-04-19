@@ -1,42 +1,34 @@
 import React from "react";
 import "./Navbar.css";
-
-// "https://cdn-images-1.medium.com/max/1200/1*LdnSztHVYhhd8K8EqlgCJQ.png" N logo
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand navbar-dark">
-        <a className="navbar-brand" href="#">
-          {/* <div class="collapse navbar-collapse" id="navbarSupportedContent"> */}
+        <Link className="navbar-brand" to="/">
           <img
             src="https://cdn-images-1.medium.com/max/1200/1*LdnSztHVYhhd8K8EqlgCJQ.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
-            alt=""
+            to="/"
+            alt="N Logo"
           />
-        </a>
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <a className="nav-link">Popular</a>{" "}
-              {/*organise articles by votes*/}
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">hello</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">hello</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">hello</a>
-            </li>
-          </ul>
-        </div>
+        </Link>
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item navbar-text">Hello</li>
+          <li className="nav-item navbar-text">world</li>
+          <li className="nav-item navbar-text">
+            <Link to="/users" className="nav-Link">
+              Users
+            </Link>
+          </li>
+        </ul>
+        <div className="collapse navbar-collapse" />
+        <span className="navbar-text">Welcome to NC News!</span>
       </nav>
     );
   }
 }
-
 export default Navbar;
