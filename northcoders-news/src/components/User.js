@@ -8,15 +8,29 @@ class User extends React.Component {
     return (
       <div className="user">
         <li className="list-group-item border-0">
-          <div className="d-flex w-100 justify-content-between">
+          <div className="card border-0">
             <div className="row">
-              <img src={avatar_url} width="50" height="50" alt="user-avatar" />
-              <h5 className="mb-1">{username}</h5>
-              <p>
-                <div className="card fakebio">
-                  {faker.fake("{{lorem.sentences}}")}
+              <div className="col-1">
+                <div className="card-avatar">
+                  <img
+                    src={avatar_url}
+                    width="80"
+                    height="80"
+                    alt="user-avatar"
+                  />
                 </div>
-              </p>
+              </div>
+              <div className="col-11">
+                <div className="card-body">
+                  <h3 className="card-title-user">{username}</h3>
+                  <h6>/{username}</h6>
+                  <p>
+                    <div className="card fakebio">
+                      {faker.fake("{{lorem.sentences}}")}
+                    </div>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           {/* <small>

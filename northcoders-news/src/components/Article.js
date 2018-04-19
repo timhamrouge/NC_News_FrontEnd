@@ -1,6 +1,7 @@
 import React from "react";
 import "./Article.css";
 import Voter from "./Voter";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class Article extends React.Component {
   render() {

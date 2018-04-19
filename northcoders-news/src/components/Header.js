@@ -6,10 +6,10 @@ class Header extends React.Component {
     return (
       <div className="page-header">
         <img
-          src="https://blog.northcoders.com/hubfs/Northcoders%20July2017%20Theme/learn_to_code_manchester_original_second.png?t=1523003809093"
+          src="https://s18.postimg.cc/ok9qaxgwp/NC_News_NC.png"
           width="100%"
           height="100%"
-          alt="Northcoders Logo"
+          alt="NC_News_NC"
         />
       </div>
     );
