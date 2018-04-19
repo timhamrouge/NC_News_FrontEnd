@@ -4,7 +4,6 @@ const faker = require("faker/locale/en_GB");
 
 class User extends React.Component {
   render() {
-    console.log(this.props.user);
     const { avatar_url, username } = this.props.user;
     return (
       <div className="user">

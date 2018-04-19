@@ -9,3 +9,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.card-footer.border-0.bg-white.text-muted {
+  font-size: 12px;
+}

@@ -40,7 +40,10 @@ class App extends Component {
         return res.json();
       })
       .then(articlesObj => {
-        this.setState({ articles: articlesObj.articles });
+        this.setState({
+          articles: articlesObj.articles,
+          loading: !this.state.loading
+        });
       });
   }
 }

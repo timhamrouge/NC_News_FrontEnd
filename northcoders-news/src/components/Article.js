@@ -25,6 +25,10 @@ class Article extends React.Component {
                   <div className={`${this.lengthGetter(length)}`}>
                     {article.body}
                   </div>
+                  <div className="card-footer border-0 bg-white text-muted">
+                    <i className="fas fa-comment-alt" />&nbsp;
+                    {article.comments} Comments
+                  </div>
                 </div>
               </div>
             </div>

@@ -4,7 +4,6 @@ const { sample } = require("lodash");
 
 class RandomArticle extends React.Component {
   render() {
-    console.log(this.props.articles);
     return (
       <div className="container">
         <div className="card-body">
