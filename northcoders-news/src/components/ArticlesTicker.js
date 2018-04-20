@@ -17,6 +17,7 @@ class ArticlesTicker extends React.Component {
               return (
                 <Article
                   long={false}
+                  path={article._id}
                   article={article}
                   key={article._id}
                   getThisArticle={this.getThisArticle}

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import ArticlesTicker from "./components/ArticlesTicker";
 import UsersList from "./components/UsersList";
 import SingleArticle from "./components/SingleArticle";
+import HomePage from "./components/HomePage";
 
 class App extends Component {
   state = {
@@ -27,7 +28,7 @@ class App extends Component {
           <Header />
           {/* <Route exact path="/" component={ArticlesTicker} /> */}
           <Route path="/articles/:article_id" component={SingleArticle} />
-
+          <Route exact path="/" component={HomePage} />
           <Route path="/users" component={UsersList} />
           <Route
             exact

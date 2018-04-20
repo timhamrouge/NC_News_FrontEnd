@@ -5,8 +5,8 @@ class SingleArticle extends React.Component {
   state = {
     article: {}
   };
+
   render() {
-    let articleid = this.props.match.params;
     return (
       <div className="container">
         <div className="card-body">

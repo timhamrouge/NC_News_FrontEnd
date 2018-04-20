@@ -3,6 +3,7 @@ import "./Article.css";
 import Voter from "./Voter";
 import Comment from "./Comment";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Article extends React.Component {
   state = {
@@ -40,6 +41,7 @@ class Article extends React.Component {
                         {this.state.comments.map(comment => {
                           return (
                             <Comment
+                              deleteComment={this.deleteComment}
                               path={path}
                               comment={comment}
                               key={comment._id}
@@ -91,6 +93,37 @@ class Article extends React.Component {
         this.setState({ comments });
       });
   }
+
+  componentWillReceiveProps(newProps) {
+    console.log(newProps, this.props);
+    if (newProps.path !== this.props.path) {
+      fetch(
+        `https://nc-news-timhamrouge.herokuapp.com/api/articles/${
+          newProps.path
+        }/comments`
+      )
+        .then(res => {
+          return res.json();
+        })
+        .then(({ comments }) => {
+          this.setState({ comments });
+        });
+    }
+  }
+
+  deleteComment = commentid => {
+    axios
+      .delete(
+        `https://nc-news-timhamrouge.herokuapp.com/api/comments/${commentid}`
+      )
+      .then(() => {
+        console.log(commentid);
+        let comments = this.state.comments.filter(comment => {
+          return comment._id !== commentid ? comment : null;
+        });
+        this.setState({ comments });
+      });
+  };
 }
 
 export default Article;

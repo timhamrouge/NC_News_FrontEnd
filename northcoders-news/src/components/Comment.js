@@ -12,7 +12,7 @@ class Comment extends React.Component {
               <div className="col-2">
                 <Voter path={`comments/${comment._id}`} votes={comment.votes} />
               </div>
-              <div className="col-10">
+              <div className="col-9">
                 <div className="card-body">
                   <h5>{comment.body}</h5>
                   <small>
@@ -20,12 +20,22 @@ class Comment extends React.Component {
                   </small>
                 </div>
               </div>
+              <div className="col-1">
+                <button onClick={() => this.handleDeleteButton(comment._id)}>
+                  <div className="delete-cross">
+                    <i className="fas fa-times" />
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </li>
       </div>
     );
   }
+  handleDeleteButton = commentid => {
+    this.props.deleteComment(commentid);
+  };
 }
 
 export default Comment;
