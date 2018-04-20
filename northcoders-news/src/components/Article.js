@@ -19,7 +19,10 @@ class Article extends React.Component {
             <div className="row">
               <div className="col-2">
                 <div className="card-votes">
-                  <Voter votes={article.votes} />
+                  <Voter
+                    path={`articles/${article._id}`}
+                    votes={article.votes}
+                  />
                 </div>
               </div>
               <div className="col-10">
@@ -75,7 +78,6 @@ class Article extends React.Component {
       </Link>
     );
   };
-
   componentDidMount() {
     fetch(
       `https://nc-news-timhamrouge.herokuapp.com/api/articles/${

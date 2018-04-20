@@ -4,14 +4,13 @@ import Voter from "./Voter";
 class Comment extends React.Component {
   render() {
     let comment = this.props.comment;
-    console.log(comment);
     return (
       <div className="comment">
         <li className="list-group-item border-0">
           <div className="card border-0">
             <div className="row">
               <div className="col-2">
-                <Voter votes={comment.votes} />
+                <Voter path={`comments/${comment._id}`} votes={comment.votes} />
               </div>
               <div className="col-10">
                 <div className="card-body">
