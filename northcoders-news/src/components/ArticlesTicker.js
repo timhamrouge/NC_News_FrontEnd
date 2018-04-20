@@ -12,27 +12,18 @@ class ArticlesTicker extends React.Component {
     return (
       <div className="container">
         <div className="articles-ticker">
-          {articleFocus ? (
-            <Route
-              path={`/articles/${article._id}`}
-              render={props => (
-                <Article long={true} article={article} key={article._id} />
-              )}
-            />
-          ) : (
-            <ul className="list-group">
-              {this.props.articles.map(article => {
-                return (
-                  <Article
-                    long={false}
-                    article={article}
-                    key={article._id}
-                    getThisArticle={this.getThisArticle}
-                  />
-                );
-              })}
-            </ul>
-          )}
+          <ul className="list-group">
+            {this.props.articles.map(article => {
+              return (
+                <Article
+                  long={false}
+                  article={article}
+                  key={article._id}
+                  getThisArticle={this.getThisArticle}
+                />
+              );
+            })}
+          </ul>
         </div>
       </div>
     );

@@ -18,7 +18,10 @@ class Navbar extends React.Component {
         </Link>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item navbar-text">
-            <Link to="/random" className="nav-Link">
+            <Link
+              to={`/articles/${!this.props.loading && this.handleRandom()}`}
+              className="nav-Link"
+            >
               Random
             </Link>
           </li>
@@ -38,5 +41,8 @@ class Navbar extends React.Component {
       </nav>
     );
   }
+  handleRandom = () => {
+    return this.props.pickRandomArticle();
+  };
 }
 export default Navbar;
