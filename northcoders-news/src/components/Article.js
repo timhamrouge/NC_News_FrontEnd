@@ -17,7 +17,6 @@ class Article extends React.Component {
     let long = this.props.long;
     let article = this.props.article;
     let path = this.props.path;
-    console.log(this.state.comments);
     return (
       <div className="article">
         <li className="list-group-item border-0">
@@ -100,8 +99,7 @@ class Article extends React.Component {
         { comment: this.state.newComment }
       )
       .then(newComment => {
-        let comments = this.state.comments;
-        this.setState({ comments: [...comments, newComment] });
+        console.log(newComment);
       });
   };
 
@@ -158,7 +156,6 @@ class Article extends React.Component {
         `https://nc-news-timhamrouge.herokuapp.com/api/comments/${commentid}`
       )
       .then(() => {
-        console.log(commentid);
         let comments = this.state.comments.filter(comment => {
           return comment._id !== commentid ? comment : null;
         });
