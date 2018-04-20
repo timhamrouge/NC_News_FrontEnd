@@ -32,19 +32,23 @@ class Article extends React.Component {
                     {article.body}
                   </div>
                   <div className="card-footer border-0 bg-white text-muted">
-                    <ul className="list-group">
-                      {this.state.comments.map(comment => {
-                        return (
-                          <Comment
-                            path={path}
-                            comment={comment}
-                            key={comment._id}
-                          />
-                        );
-                      })}
-                    </ul>
-                    {/* <i className="fas fa-comment-alt" />&nbsp;
-                    {article.comments} Comments */}
+                    {long ? (
+                      <ul className="list-group">
+                        {this.state.comments.map(comment => {
+                          return (
+                            <Comment
+                              path={path}
+                              comment={comment}
+                              key={comment._id}
+                            />
+                          );
+                        })}
+                      </ul>
+                    ) : (
+                      <i className="fas fa-comment-alt">
+                        {article.comments} Comments
+                      </i>
+                    )}
                   </div>
                 </div>
               </div>
