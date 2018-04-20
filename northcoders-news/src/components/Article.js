@@ -7,12 +7,17 @@ import axios from "axios";
 
 class Article extends React.Component {
   state = {
-    comments: []
+    comments: [],
+    newComment: ""
   };
+  static getDerivedStateFromProps(newState) {
+    return newState;
+  }
   render() {
     let long = this.props.long;
     let article = this.props.article;
     let path = this.props.path;
+    console.log(this.state.comments);
     return (
       <div className="article">
         <li className="list-group-item border-0">
@@ -38,6 +43,22 @@ class Article extends React.Component {
                   <div className="card-footer border-0 bg-white text-muted">
                     {long ? (
                       <ul className="list-group">
+                        <li className="list-group-item border-0">
+                          <h5>Post a Comment:</h5>
+                          <form onSubmit={this.createComment}>
+                            <div className="form-group">
+                              <textarea
+                                className="form-control"
+                                id="newComment"
+                                value={this.state.newComment}
+                                onChange={this.handleCommentChange}
+                              />
+                              <button type="submit" className="btn">
+                                Submit
+                              </button>
+                            </div>
+                          </form>
+                        </li>
                         {this.state.comments.map(comment => {
                           return (
                             <Comment
@@ -63,6 +84,27 @@ class Article extends React.Component {
       </div>
     );
   }
+
+  handleCommentChange = e => {
+    let newComment = e.target.value;
+    this.setState({ newComment });
+  };
+
+  createComment = event => {
+    event.preventDefault();
+    axios
+      .post(
+        `https://nc-news-timhamrouge.herokuapp.com/api/articles/${
+          this.props.path
+        }/comments`,
+        { comment: this.state.newComment }
+      )
+      .then(newComment => {
+        let comments = this.state.comments;
+        this.setState({ comments: [...comments, newComment] });
+      });
+  };
+
   lengthGetter = long => {
     return !long ? "body-snippet" : "body";
   };
@@ -95,7 +137,6 @@ class Article extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps, this.props);
     if (newProps.path !== this.props.path) {
       fetch(
         `https://nc-news-timhamrouge.herokuapp.com/api/articles/${
