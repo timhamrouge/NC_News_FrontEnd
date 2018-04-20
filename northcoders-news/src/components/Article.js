@@ -1,12 +1,17 @@
 import React from "react";
 import "./Article.css";
 import Voter from "./Voter";
+import Comment from "./Comment";
 import { Link } from "react-router-dom";
 
 class Article extends React.Component {
+  state = {
+    comments: []
+  };
   render() {
     let long = this.props.long;
     let article = this.props.article;
+    let path = this.props.path;
     return (
       <div className="article">
         <li className="list-group-item border-0">
@@ -27,8 +32,19 @@ class Article extends React.Component {
                     {article.body}
                   </div>
                   <div className="card-footer border-0 bg-white text-muted">
-                    <i className="fas fa-comment-alt" />&nbsp;
-                    {article.comments} Comments
+                    <ul className="list-group">
+                      {this.state.comments.map(comment => {
+                        return (
+                          <Comment
+                            path={path}
+                            comment={comment}
+                            key={comment._id}
+                          />
+                        );
+                      })}
+                    </ul>
+                    {/* <i className="fas fa-comment-alt" />&nbsp;
+                    {article.comments} Comments */}
                   </div>
                 </div>
               </div>
@@ -55,6 +71,20 @@ class Article extends React.Component {
       </Link>
     );
   };
+
+  componentDidMount() {
+    fetch(
+      `https://nc-news-timhamrouge.herokuapp.com/api/articles/${
+        this.props.path
+      }/comments`
+    )
+      .then(res => {
+        return res.json();
+      })
+      .then(({ comments }) => {
+        this.setState({ comments });
+      });
+  }
 }
 
 export default Article;

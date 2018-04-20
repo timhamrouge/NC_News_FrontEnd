@@ -10,7 +10,11 @@ class SingleArticle extends React.Component {
     return (
       <div className="container">
         <div className="card-body">
-          <Article long={true} article={this.state.article} />
+          <Article
+            path={this.props.match.params.article_id}
+            long={true}
+            article={this.state.article}
+          />
         </div>
       </div>
     );
@@ -29,7 +33,6 @@ class SingleArticle extends React.Component {
       });
   }
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
     if (
       newProps.match.params.article_id !== this.props.match.params.article_id
     ) {

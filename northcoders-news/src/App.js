@@ -26,7 +26,7 @@ class App extends Component {
           />
           <Header />
           {/* <Route exact path="/" component={ArticlesTicker} /> */}
-          <Route exact path="/articles/:article_id" component={SingleArticle} />
+          <Route path="/articles/:article_id" component={SingleArticle} />
 
           <Route path="/users" component={UsersList} />
           <Route
