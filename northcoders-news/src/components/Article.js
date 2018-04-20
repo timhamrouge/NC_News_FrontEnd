@@ -1,11 +1,11 @@
 import React from "react";
 import "./Article.css";
 import Voter from "./Voter";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Article extends React.Component {
   render() {
-    let length = this.props.length;
+    let long = this.props.long;
     let article = this.props.article;
     return (
       <div className="article">
@@ -19,11 +19,11 @@ class Article extends React.Component {
               </div>
               <div className="col-10">
                 <div className="card-body">
-                  <h5 className="card-title">{article.title}</h5>
+                  {this.setHeader(long, article)}
                   <small>
                     Posted by: {article.created_by} in /{article.belongs_to}
                   </small>
-                  <div className={`${this.lengthGetter(length)}`}>
+                  <div className={`${this.lengthGetter(long)}`}>
                     {article.body}
                   </div>
                   <div className="card-footer border-0 bg-white text-muted">
@@ -38,8 +38,22 @@ class Article extends React.Component {
       </div>
     );
   }
-  lengthGetter = length => {
-    return !length ? "body-snippet" : "body";
+  lengthGetter = long => {
+    return !long ? "body-snippet" : "body";
+  };
+  setThisArticle = () => {
+    return this.props.getThisArticle(this.props.article);
+  };
+  setHeader = (long, article) => {
+    return long ? (
+      <h5 className="card-title">{article.title}</h5>
+    ) : (
+      <Link to={`/articles/${article._id}`}>
+        <h5 onClick={this.setThisArticle} className="card-title">
+          {article.title}
+        </h5>
+      </Link>
+    );
   };
 }
 

@@ -7,7 +7,7 @@ class RandomArticle extends React.Component {
     return (
       <div className="container">
         <div className="card-body">
-          <Article length={true} article={sample(this.props.articles)} />
+          <Article long={true} article={sample(this.props.articles)} />
         </div>
       </div>
     );

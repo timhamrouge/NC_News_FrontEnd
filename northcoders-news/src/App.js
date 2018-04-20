@@ -10,13 +10,15 @@ class App extends Component {
   state = {
     articles: [],
     loading: true,
-    articleLength: 0
+    // articleLength: false,
+    mostTalkedAbout: []
   };
   render() {
     const { articles } = this.state;
     return (
       <Router>
         <div className="App">
+          {console.log(this.state)}
           <Navbar />
           <Header />
           {/* <Route exact path="/" component={ArticlesTicker} /> */}
@@ -34,6 +36,7 @@ class App extends Component {
       </Router>
     );
   }
+
   componentDidMount() {
     fetch("https://nc-news-timhamrouge.herokuapp.com/api/articles")
       .then(res => {
@@ -46,6 +49,16 @@ class App extends Component {
         });
       });
   }
+
+  //
+
+  //   getMostPopularArticles = () => {
+  //     let mostTalkedAbout = this.state.articles.sort((a, b) => {
+  //       console.log(a, b);
+  //       return a.comments - b.comments;
+  //     });
+  //     return this.setState({ mostTalkedAbout });
+  //   };
 }
 
 export default App;

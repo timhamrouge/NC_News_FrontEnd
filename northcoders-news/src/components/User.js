@@ -24,11 +24,10 @@ class User extends React.Component {
                 <div className="card-body">
                   <h3 className="card-title-user">{username}</h3>
                   <h6>/{username}</h6>
-                  <p>
-                    <div className="card fakebio">
-                      {faker.fake("{{lorem.sentences}}")}
-                    </div>
-                  </p>
+
+                  <div className="card fakebio">
+                    {faker.fake("{{lorem.sentences}}")}
+                  </div>
                 </div>
               </div>
             </div>
