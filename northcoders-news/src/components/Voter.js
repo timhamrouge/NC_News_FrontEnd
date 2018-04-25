@@ -13,13 +13,16 @@ class Voter extends React.Component {
     const { votes } = this.state;
     return (
       <div className="voter">
-        <button onClick={() => this.changeVote("up")}>
+        <button className="btn bg-white" onClick={() => this.changeVote("up")}>
           <div className="up-arrow">
             <i className="fas fa-chevron-up" />
           </div>
         </button>
         <div className="votes">{votes}</div>
-        <button onClick={() => this.changeVote("down")}>
+        <button
+          className="btn bg-white"
+          onClick={() => this.changeVote("down")}
+        >
           <div className="down-arrow">
             <i className="fas fa-chevron-down" />
           </div>

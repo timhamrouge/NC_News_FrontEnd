@@ -21,7 +21,10 @@ class Comment extends React.Component {
                 </div>
               </div>
               <div className="col-1">
-                <button onClick={() => this.handleDeleteButton(comment._id)}>
+                <button
+                  className="btn bg-white"
+                  onClick={() => this.handleDeleteButton(comment._id)}
+                >
                   <div className="delete-cross">
                     <i className="fas fa-times" />
                   </div>

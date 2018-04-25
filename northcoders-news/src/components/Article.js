@@ -91,16 +91,12 @@ class Article extends React.Component {
 
   createComment = event => {
     event.preventDefault();
-    axios
-      .post(
-        `https://nc-news-timhamrouge.herokuapp.com/api/articles/${
-          this.props.path
-        }/comments`,
-        { comment: this.state.newComment }
-      )
-      .then(newComment => {
-        console.log(newComment);
-      });
+    axios.post(
+      `https://nc-news-timhamrouge.herokuapp.com/api/articles/${
+        this.props.path
+      }/comments`,
+      { comment: this.state.newComment }
+    );
   };
 
   lengthGetter = long => {
