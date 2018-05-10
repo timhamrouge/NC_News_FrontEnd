@@ -1,5 +1,6 @@
 import React from "react";
 import User from "./User";
+import Header from "./Header";
 
 class UsersList extends React.Component {
   state = {
@@ -7,13 +8,16 @@ class UsersList extends React.Component {
   };
   render() {
     return (
-      <div className="container">
-        <div className="users-list">
-          <ul className="list-group">
-            {this.state.users.map(user => {
-              return <User user={user} key={user._id} />;
-            })}
-          </ul>
+      <div>
+        <Header />
+        <div className="container">
+          <div className="users-list">
+            <ul className="list-group">
+              {this.state.users.map(user => {
+                return <User user={user} key={user._id} />;
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     );

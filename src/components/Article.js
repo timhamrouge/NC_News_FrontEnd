@@ -97,6 +97,8 @@ class Article extends React.Component {
       }/comments`,
       { comment: this.state.newComment }
     );
+
+    this.setState({ newComment: "" });
   };
 
   lengthGetter = long => {

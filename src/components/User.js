@@ -32,10 +32,6 @@ class User extends React.Component {
               </div>
             </div>
           </div>
-          {/* <small>
-            Posted by: {article.created_by} in {article.belongs_to}
-          </small> */}
-          {/* <div className="row">{article.body.slice(0, 200)}...</div> */}
         </li>
       </div>
     );

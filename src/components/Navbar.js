@@ -3,33 +3,10 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
+  state = { codingID: "", cookingID: "", footballID: "" };
   render() {
-    // <nav className="navbar navbar-expand navbar-dark fixed-top border-bottom">
-    //
-    //   <div className="collapse navbar-collapse">
-    //     <ul className="navbar-nav mr-auto">
-    //       <li className="nav-item">
-    //         <Link
-    //           to={`/articles/${!this.props.loading && this.handleRandom()}`}
-    //           className="nav-Link"
-    //         >
-    //           Random
-    //         </Link>
-    //       </li>
-    //       <li className="nav-item">
-
-    //       </li>
-    //       <li className="nav-item">
-
-    //       </li>
-
-    //     </ul>
-    //   </div>
-
-    // </nav>
-
     return (
-      <nav class="navbar navbar-expand navbar-dark">
+      <nav className="navbar navbar-expand navbar-dark">
         <Link className="navbar-brand nav-link" to="/">
           <img
             src="https://cdn-images-1.medium.com/max/1200/1*LdnSztHVYhhd8K8EqlgCJQ.png"
@@ -41,7 +18,7 @@ class Navbar extends React.Component {
           />
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavAltMarkup"
@@ -49,10 +26,10 @@ class Navbar extends React.Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon" />
+          <span className="navbar-toggler-icon" />
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
             <Link className="nav-item nav-link" to="/articles">
               All
             </Link>
@@ -68,7 +45,7 @@ class Navbar extends React.Component {
             <div className="nav-item nav-link dropdown">
               <div className="dropdown show">
                 <a
-                  class="dropdown-toggle"
+                  className="dropdown-toggle"
                   id="dropdownMenuLink"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -76,16 +53,19 @@ class Navbar extends React.Component {
                 >
                   Topics
                 </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuLink"
+                >
+                  <Link to="/coding" className="dropdown-item">
                     Coding
-                  </a>
-                  <a class="dropdown-item" href="#">
+                  </Link>
+                  <Link to="/cooking" className="dropdown-item">
                     Cooking
-                  </a>
-                  <a class="dropdown-item" href="#">
+                  </Link>
+                  <Link to="/football" className="dropdown-item">
                     Football
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -28,7 +28,7 @@ class App extends Component {
             loading={this.state.loading}
             pickRandomArticle={this.pickRandomArticle}
           />
-          <Header />
+          {/* <Header /> */}
           {/* <Route exact path="/" component={ArticlesTicker} /> */}
           <Route path="/articles/:article_id" component={SingleArticle} />
           <Route

@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Header";
 import ArticlesTicker from "./ArticlesTicker";
 import "./HomePage.css";
 
@@ -17,6 +18,7 @@ class HomePage extends React.Component {
 
     return (
       <div>
+        <Header />
         <div className="mx-auto">
           <h1 className="home-header">{`<WELCOME TO NORTHCODERS NEWS! />`}</h1>
           <p />

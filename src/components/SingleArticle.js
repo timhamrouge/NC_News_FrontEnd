@@ -1,5 +1,6 @@
 import React from "react";
 import Article from "./Article";
+import Header from "./Header";
 
 class SingleArticle extends React.Component {
   state = {
@@ -8,13 +9,16 @@ class SingleArticle extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="card-body">
-          <Article
-            path={this.props.match.params.article_id}
-            long={true}
-            article={this.state.article}
-          />
+      <div>
+        <Header />
+        <div className="container">
+          <div className="card-body">
+            <Article
+              path={this.props.match.params.article_id}
+              long={true}
+              article={this.state.article}
+            />
+          </div>
         </div>
       </div>
     );
