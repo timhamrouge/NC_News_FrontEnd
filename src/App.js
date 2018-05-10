@@ -7,6 +7,9 @@ import ArticlesTicker from "./components/ArticlesTicker";
 import UsersList from "./components/UsersList";
 import SingleArticle from "./components/SingleArticle";
 import HomePage from "./components/HomePage";
+import Coding from "./components/Coding";
+import Cooking from "./components/Cooking";
+import Football from "./components/Football";
 
 class App extends Component {
   state = {
@@ -28,7 +31,44 @@ class App extends Component {
           <Header />
           {/* <Route exact path="/" component={ArticlesTicker} /> */}
           <Route path="/articles/:article_id" component={SingleArticle} />
-          <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/"
+            render={props => <HomePage articles={articles} />}
+          />
+          <Route
+            exact
+            path="/coding"
+            render={props => (
+              <Coding
+                articles={articles.filter(article => {
+                  return article.belongs_to === "Coding";
+                })}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/cooking"
+            render={props => (
+              <Cooking
+                articles={articles.filter(article => {
+                  return article.belongs_to === "Cooking";
+                })}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/football"
+            render={props => (
+              <Football
+                articles={articles.filter(article => {
+                  return article.belongs_to === "Football";
+                })}
+              />
+            )}
+          />
           <Route path="/users" component={UsersList} />
           <Route
             exact
@@ -39,15 +79,6 @@ class App extends Component {
       </Router>
     );
   }
-
-  // {articleFocus ? (
-  //           <Route
-  //             path={`/articles/${article._id}`}
-  //             render={props => (
-  //               <Article long={true} article={article} key={article._id} />
-  //             )}
-  //           />
-  //         ) : (
 
   componentDidMount() {
     fetch("https://nc-news-timhamrouge.herokuapp.com/api/articles")
@@ -65,14 +96,6 @@ class App extends Component {
   pickRandomArticle = () => {
     return sample(this.state.articles)._id;
   };
-
-  //   getMostPopularArticles = () => {
-  //     let mostTalkedAbout = this.state.articles.sort((a, b) => {
-  //       console.log(a, b);
-  //       return a.comments - b.comments;
-  //     });
-  //     return this.setState({ mostTalkedAbout });
-  //   };
 }
 
 export default App;
