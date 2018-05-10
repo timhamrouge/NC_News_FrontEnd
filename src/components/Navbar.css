@@ -4,6 +4,10 @@ nav {
   font-size: 20px;
 }
 
-.dropdown-menu.dropdown-item: hover {
+a.dropdown-item:hover {
   background-color: #c31432;
+}
+
+a.dropdown-item:active {
+  background-color: black;
 }

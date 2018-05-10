@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage";
 import Coding from "./components/Coding";
 import Cooking from "./components/Cooking";
 import Football from "./components/Football";
+import AllArticles from "./components/AllArticles";
 
 class App extends Component {
   state = {
@@ -73,7 +74,7 @@ class App extends Component {
           <Route
             exact
             path="/articles"
-            render={props => <ArticlesTicker articles={articles} />}
+            render={props => <AllArticles articles={articles} />}
           />
         </div>
       </Router>
