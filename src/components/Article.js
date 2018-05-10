@@ -110,7 +110,7 @@ class Article extends React.Component {
       <h5 className="card-title">{article.title}</h5>
     ) : (
       <Link to={`/articles/${article._id}`}>
-        <h5 onClick={this.setThisArticle} className="card-title">
+        <h5 onClick={this.setThisArticle} className="card-title-long">
           {article.title}
         </h5>
       </Link>

@@ -13,3 +13,21 @@
 .card-footer.border-0.bg-white.text-muted {
   font-size: 12px;
 }
+
+.article-title:hover {
+  font-size: 20px;
+}
+
+.card-title-long:hover {
+  background-color: white;
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  text-decoration: underline;
+}
+
+.card-title-long {
+  background-color: #c31432;
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  text-decoration: none;
+}
