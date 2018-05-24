@@ -1,24 +1,31 @@
 import React from "react";
 import User from "./User";
+import Loading from "./Loading";
 import Header from "./Header";
 
 class UsersList extends React.Component {
   state = {
-    users: []
+    users: [],
+    loading: true
   };
   render() {
+    let { users, loading } = this.state;
     return (
       <div>
         <Header />
-        <div className="container">
-          <div className="users-list">
-            <ul className="list-group">
-              {this.state.users.map(user => {
-                return <User user={user} key={user._id} />;
-              })}
-            </ul>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="container">
+            <div className="users-list">
+              <ul className="list-group">
+                {users.map(user => {
+                  return <User user={user} key={user._id} />;
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
@@ -28,7 +35,7 @@ class UsersList extends React.Component {
         return res.json();
       })
       .then(usersObj => {
-        this.setState({ users: usersObj.users });
+        this.setState({ users: usersObj.users, loading: !this.state.loading });
       });
   }
 }

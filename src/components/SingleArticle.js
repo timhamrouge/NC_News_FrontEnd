@@ -1,25 +1,32 @@
 import React from "react";
 import Article from "./Article";
 import Header from "./Header";
+import Loading from "./Loading";
 
 class SingleArticle extends React.Component {
   state = {
-    article: {}
+    article: {},
+    loading: true
   };
 
   render() {
+    let { loading, article } = this.state;
     return (
       <div>
         <Header />
-        <div className="container">
-          <div className="card-body">
-            <Article
-              path={this.props.match.params.article_id}
-              long={true}
-              article={this.state.article}
-            />
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="container">
+            <div className="card-body">
+              <Article
+                path={this.props.match.params.article_id}
+                long={true}
+                article={article}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
@@ -33,7 +40,7 @@ class SingleArticle extends React.Component {
         return res.json();
       })
       .then(({ article }) => {
-        this.setState({ article });
+        this.setState({ article, loading: !this.state.loading });
       });
   }
   componentWillReceiveProps(newProps) {

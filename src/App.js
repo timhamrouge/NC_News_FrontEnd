@@ -20,13 +20,13 @@ class App extends Component {
     selectedArticle: {}
   };
   render() {
-    const { articles, selectedArticle } = this.state;
+    const { articles, selectedArticle, loading } = this.state;
     return (
       <Router>
         <div className="App">
           {/* {console.log(this.state)} */}
           <Navbar
-            loading={this.state.loading}
+            loading={loading}
             pickRandomArticle={this.pickRandomArticle}
           />
 
@@ -34,15 +34,14 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={props => (
-              <HomePage loading={this.state.loading} articles={articles} />
-            )}
+            render={props => <HomePage loading={loading} articles={articles} />}
           />
           <Route
             exact
             path="/coding"
             render={props => (
               <Coding
+                loading={loading}
                 articles={articles.filter(article => {
                   return article.belongs_to === "Coding";
                 })}
@@ -54,6 +53,7 @@ class App extends Component {
             path="/cooking"
             render={props => (
               <Cooking
+                loading={loading}
                 articles={articles.filter(article => {
                   return article.belongs_to === "Cooking";
                 })}
@@ -65,6 +65,7 @@ class App extends Component {
             path="/football"
             render={props => (
               <Football
+                loading={loading}
                 articles={articles.filter(article => {
                   return article.belongs_to === "Football";
                 })}
@@ -75,7 +76,9 @@ class App extends Component {
           <Route
             exact
             path="/articles"
-            render={props => <AllArticles articles={articles} />}
+            render={props => (
+              <AllArticles loading={loading} articles={articles} />
+            )}
           />
         </div>
       </Router>

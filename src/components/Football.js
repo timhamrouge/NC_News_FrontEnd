@@ -1,14 +1,21 @@
 import React from "react";
 import Header from "./Header";
+import Loading from "./Loading";
 import ArticlesTicker from "./ArticlesTicker";
 
 class Football extends React.Component {
   render() {
-    let { articles } = this.props;
+    let { articles, loading } = this.props;
     return (
       <div>
-        <Header context={"football"} />
-        <ArticlesTicker articles={articles} />
+        {loading ? (
+          <Loading />
+        ) : (
+          <div>
+            <Header context={"football"} />
+            <ArticlesTicker articles={articles} />
+          </div>
+        )};
       </div>
     );
   }
