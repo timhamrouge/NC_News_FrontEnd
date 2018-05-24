@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "./Header";
-import Loading from "./Loading";
-import ArticlesTicker from "./ArticlesTicker";
+import { Header, Loading, ArticlesTicker } from "./index";
 
 class Football extends React.Component {
   render() {

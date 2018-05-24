@@ -1,7 +1,5 @@
 import React from "react";
-import Article from "./Article";
-import Header from "./Header";
-import Loading from "./Loading";
+import { Header, Loading, Article } from "./index";
 
 class SingleArticle extends React.Component {
   state = {

@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "./Header";
-import ArticlesTicker from "./ArticlesTicker";
-import Loading from "./Loading";
+import { Header, Loading, ArticlesTicker } from "./index";
 
 import "./HomePage.css";
 

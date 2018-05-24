@@ -1,7 +1,5 @@
 import React from "react";
-import User from "./User";
-import Loading from "./Loading";
-import Header from "./Header";
+import { Header, Loading, User } from "./index";
 
 class UsersList extends React.Component {
   state = {

@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { sample } from "lodash";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import ArticlesTicker from "./components/ArticlesTicker";
-import UsersList from "./components/UsersList";
-import SingleArticle from "./components/SingleArticle";
-import HomePage from "./components/HomePage";
-import Coding from "./components/Coding";
-import Cooking from "./components/Cooking";
-import Football from "./components/Football";
-import AllArticles from "./components/AllArticles";
+import {
+  Navbar,
+  Header,
+  ArticlesTicker,
+  UsersList,
+  SingleArticle,
+  HomePage,
+  Coding,
+  Cooking,
+  Football,
+  AllArticles
+} from "./components/index";
 
 class App extends Component {
   state = {

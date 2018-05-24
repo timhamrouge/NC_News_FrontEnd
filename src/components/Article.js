@@ -1,7 +1,6 @@
 import React from "react";
 import "./Article.css";
-import Voter from "./Voter";
-import Comment from "./Comment";
+import { Voter, Comment } from "./index";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
