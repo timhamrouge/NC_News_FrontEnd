@@ -29,13 +29,14 @@ class App extends Component {
             loading={this.state.loading}
             pickRandomArticle={this.pickRandomArticle}
           />
-          {/* <Header /> */}
-          {/* <Route exact path="/" component={ArticlesTicker} /> */}
+
           <Route path="/articles/:article_id" component={SingleArticle} />
           <Route
             exact
             path="/"
-            render={props => <HomePage articles={articles} />}
+            render={props => (
+              <HomePage loading={this.state.loading} articles={articles} />
+            )}
           />
           <Route
             exact

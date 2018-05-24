@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import ArticlesTicker from "./ArticlesTicker";
+import Loading from "./Loading";
+
 import "./HomePage.css";
 
 class HomePage extends React.Component {
@@ -19,18 +21,22 @@ class HomePage extends React.Component {
     return (
       <div>
         <Header />
-        <div className="mx-auto">
-          <h1 className="home-header">{`<WELCOME TO NORTHCODERS NEWS! />`}</h1>
-          <p />
-          <h3 className="sub-cats">Most Popular Article:</h3>
-          <div>
-            <ArticlesTicker articles={mostPopular} />
+        {this.props.loading ? (
+          <Loading />
+        ) : (
+          <div className="mx-auto">
+            <h1 className="home-header">{`<WELCOME TO NORTHCODERS NEWS! />`}</h1>
+            <p />
+            <h3 className="sub-cats">Most Popular Article:</h3>
+            <div>
+              <ArticlesTicker articles={mostPopular} />
+            </div>
+            <h3 className="sub-cats">Most Talked About Article:</h3>
+            <div>
+              <ArticlesTicker articles={mostTalkedAbout} />
+            </div>
           </div>
-          <h3 className="sub-cats">Most Talked About Article:</h3>
-          <div>
-            <ArticlesTicker articles={mostTalkedAbout} />
-          </div>
-        </div>
+        )}
       </div>
     );
   }
