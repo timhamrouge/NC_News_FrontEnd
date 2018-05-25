@@ -69,9 +69,10 @@ class Article extends React.Component {
                         })}
                       </ul>
                     ) : (
-                      <i className="fas fa-comment-alt">
+                      <div>
+                        <i className="fas fa-comment-alt" />
                         {article.comments} Comments
-                      </i>
+                      </div>
                     )}
                   </div>
                 </div>

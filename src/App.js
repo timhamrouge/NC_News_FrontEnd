@@ -31,7 +31,6 @@ class App extends Component {
             loading={loading}
             pickRandomArticle={this.pickRandomArticle}
           />
-
           <Route path="/articles/:article_id" component={SingleArticle} />
           <Route
             exact
